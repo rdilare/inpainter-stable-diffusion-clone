@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   if (response.status !== 201) {
     let error = await response.json();
     res.statusCode = 500;
-    res.end(JSON.stringify({ detail: error.detail }));
+    res.end(JSON.stringify({ detail: error.detail, msg: "failed to get response from REPLICATE" }));
     return;
   }
 
