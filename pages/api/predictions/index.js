@@ -28,14 +28,17 @@ export default async function handler(req, res) {
     body,
   });
 
+  const prediction = await response.json();
+  prediction.output = ["https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"];
+  res.statusCode = 201;
+  res.end(JSON.stringify(prediction));
+
+  return;
+  
   if (response.status !== 201) {
     let error = await response.json();
     res.statusCode = 500;
     res.end(JSON.stringify({ detail: error.detail, msg: "failed to get response from REPLICATE" }));
     return;
   }
-
-  const prediction = await response.json();
-  res.statusCode = 201;
-  res.end(JSON.stringify(prediction));
 }
