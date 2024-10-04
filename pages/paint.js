@@ -86,6 +86,7 @@ export default function Home() {
       </Head>
 
       <main className="container mx-auto p-5">
+        <h5 className="text-center text-7xl pb-3">Error: </h5>
         {error && <div>{error}</div>}
 
         <div className="border-hairline max-w-[512px] mx-auto relative">
