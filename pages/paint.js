@@ -50,7 +50,9 @@ export default function Home() {
       return;
     }
     setPredictions(predictions.concat([prediction]));
+    
     setUserUploadedImage(null);
+    setMaskImage(null);
 
     // while (
     //   prediction.status !== "succeeded" &&
