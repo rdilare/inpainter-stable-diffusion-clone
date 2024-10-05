@@ -50,24 +50,25 @@ export default function Home() {
       return;
     }
     setPredictions(predictions.concat([prediction]));
+    setUserUploadedImage(null);
 
-    while (
-      prediction.status !== "succeeded" &&
-      prediction.status !== "failed"
-    ) {
-      await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
-      prediction = await response.json();
-      if (response.status !== 200) {
-        setError(prediction.detail);
-        return;
-      }
-      setPredictions(predictions.concat([prediction]));
+    // while (
+    //   prediction.status !== "succeeded" &&
+    //   prediction.status !== "failed"
+    // ) {
+    //   await sleep(1000);
+    //   const response = await fetch("/api/predictions/" + prediction.id);
+    //   prediction = await response.json();
+    //   if (response.status !== 200) {
+    //     setError(prediction.detail);
+    //     return;
+    //   }
+    //   setPredictions(predictions.concat([prediction]));
 
-      if (prediction.status === "succeeded") {
-        setUserUploadedImage(null);
-      }
-    }
+    //   if (prediction.status === "succeeded") {
+    //     setUserUploadedImage(null);
+    //   }
+    // }
   };
 
   const startOver = async (e) => {
