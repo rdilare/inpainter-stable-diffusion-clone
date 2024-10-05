@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "*.replicate.delivery",
       },
+      {
+        protocol: "https",
+        hostname: "**", // New entry for the given domain
+      },
     ],
   },
 };
